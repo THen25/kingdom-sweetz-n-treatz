@@ -2,14 +2,15 @@ import { useState } from "react";
 import "../styles/Contact.css";
 
 function Contact() {
+  // Tab switching
   const [activeTab, setActiveTab] = useState("contact");
-
+  // Contact form state
   const [contactName, setContactName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [contactSubmitted, setContactSubmitted] = useState(false);
-
+  // Quote form state
   const [quoteName, setQuoteName] = useState("");
   const [quoteEmail, setQuoteEmail] = useState("");
   const [quotePhone, setQuotePhone] = useState("");
