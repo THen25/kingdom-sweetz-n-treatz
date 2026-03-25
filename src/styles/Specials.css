@@ -1,0 +1,54 @@
+/* .special-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.special-category {
+  margin-bottom: 3rem;
+}
+
+.special-title {
+  font-size: 2rem;
+  color: #e0007a;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0e0e8;
+}
+
+.special-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.special-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background-color: #fdf6f9;
+  border-radius: 8px;
+  border: 1px solid #f0e0e8;
+}
+
+.special-item-info h3 {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+}
+
+.special-item-info p {
+  font-size: 0.95rem;
+  color: #666666;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.special-item-price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e0007a;
+  white-space: nowrap;
+  margin-left: 1rem;
+} */

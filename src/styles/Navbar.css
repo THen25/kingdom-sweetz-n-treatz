@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 2px solid #d4af37;
+}
+
+.logo-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.logo-accent {
+  color: #e0007a;
+}
+
+.navbar-logo a {
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.navbar-links a:hover {
+  color: #e0007a;
+}
