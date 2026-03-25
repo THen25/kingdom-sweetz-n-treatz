@@ -3,7 +3,6 @@ import "../styles/Gallery.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
 import lemonCupcakes from "../assets/lemon-cupcakes.jpg";
 import coachCake from "../assets/coach-cake.jpg";
-import heroBg from "../assets/hero-bg.jpg";
 
 const galleryItems = [
   {
@@ -23,12 +22,6 @@ const galleryItems = [
     image: coachCake,
     title: "Custom Bento Box",
     category: "Cakes",
-  },
-  {
-    id: 4,
-    image: heroBg,
-    title: "Signature Creations",
-    category: "Featured",
   },
 ];
 
