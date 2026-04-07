@@ -5,7 +5,7 @@ import Menu from "./pages/Menu";
 import Order from "./pages/Order";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
-// import Specials from "./pages/Specials";
+import Specials from "./pages/Specials";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Route path="/order" element={<Order />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        {/* <Route path="/specials" element={<Specials />}></Route> */}
+        <Route path="/specials" element={<Specials />}></Route>
       </Routes>
     </div>
   );
