@@ -3,6 +3,14 @@ import "../styles/Gallery.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
 import lemonCupcakes from "../assets/lemon-cupcakes.jpg";
 import coachCake from "../assets/coach-cake.jpg";
+import sonicCake from "../assets/sonic-cake.jpg";
+import gabbyDollhouseCake from "../assets/gabby-dollhouse-cake.png";
+import gradCupcakes from "../assets/grad-cupcakes.jpg";
+import babySharkCake from "../assets/baby-shark-cake.jpg";
+import doubleChocolateCake from "../assets/double-chocolate-cake.jpg";
+import gingerbreadCupcakes from "../assets/gingerbread-cupcakes.jpg";
+import fathersDayCupcakes from "../assets/fathers-day-cupcakes.jpg";
+import fathersDayBox from "../assets/fathers-day-box.jpg";
 
 const galleryItems = [
   {
@@ -14,7 +22,7 @@ const galleryItems = [
   {
     id: 2,
     image: lemonCupcakes,
-    title: "Lemon Cupcakes",
+    title: "Custom Lemon Cupcakes",
     category: "Cupcakes",
   },
   {
@@ -22,6 +30,54 @@ const galleryItems = [
     image: coachCake,
     title: "Custom Bento Box",
     category: "Cakes",
+  },
+  {
+    id: 4,
+    image: sonicCake,
+    title: "Custom Sonic the Hedgehog Cake",
+    category: "Cakes",
+  },
+  {
+    id: 5,
+    image: gradCupcakes,
+    title: "Custom Graduation Cupcakes",
+    category: "Cupcakes",
+  },
+  {
+    id: 6,
+    image: gabbyDollhouseCake,
+    title: "Custom Gabby Dollhouse Cake",
+    category: "Cakes",
+  },
+  {
+    id: 7,
+    image: babySharkCake,
+    title: "Custom Baby Shark Cake",
+    category: "Cakes",
+  },
+  {
+    id: 8,
+    image: doubleChocolateCake,
+    title: "Custom 5 inch Triple Layer Double Chocolate Cake",
+    category: "Cakes",
+  },
+  {
+    id: 9,
+    image: gingerbreadCupcakes,
+    title: "Custom Gingerbread Cupakes",
+    category: "Cupcakes",
+  },
+  {
+    id: 10,
+    image: fathersDayCupcakes,
+    title: "Custom Father's Cupcakes",
+    category: "Cupcakes",
+  },
+  {
+    id: 11,
+    image: fathersDayBox,
+    title: "Custom Father's Day Box",
+    category: "Cupcakes",
   },
 ];
 

@@ -2,6 +2,7 @@ import "../styles/Home.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
 import lemonCupcakes from "../assets/lemon-cupcakes.jpg";
 import coachCake from "../assets/coach-cake.jpg";
+import cheesecakeShooters from "../assets/cheesecake-shooters.jpg";
 
 const treats = [
   {
@@ -12,12 +13,18 @@ const treats = [
   },
   {
     id: 2,
+    image: cheesecakeShooters,
+    title: "Custom Cheesecake Shooters",
+    description: "Custom Cheesecake Shooters",
+  },
+  {
+    id: 3,
     image: lemonCupcakes,
     title: "Custom Cupcakes",
     description: "1/2 Dozen lemon Cupcakes with Vanilla Butter Cream",
   },
   {
-    id: 3,
+    id: 4,
     image: coachCake,
     title: "Custom Bento Box",
     description: "5 inch chocolate cake with 5 cupcakes",
