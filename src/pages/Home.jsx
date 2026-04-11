@@ -83,7 +83,7 @@ function Home() {
       </section>
 
       <section className="treats">
-        <h2 className="treats-title">Sweet Creations</h2>
+        <h2 className="treats-title">Featured Sweet Creations</h2>
         <div className="treats-grid">
           {treats.map((treat) => (
             <div className="treat-card" key={treat.id}>

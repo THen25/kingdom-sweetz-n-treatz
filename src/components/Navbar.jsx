@@ -19,17 +19,14 @@ function Navbar() {
           <Link to="/menu">Menu</Link>
         </li>
         <li>
-          <Link to="/order">Order</Link>
+          <Link to="/contact">Order & Contact</Link>
         </li>
         <li>
           <Link to="/gallery">Gallery</Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
-        </li>
-        {/* <li>
           <Link to="/specials">Specials</Link>
-        </li> */}
+        </li>
       </ul>
     </nav>
   );
