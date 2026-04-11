@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import Contact from "./pages/Contact";
@@ -17,6 +18,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/specials" element={<Specials />}></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
