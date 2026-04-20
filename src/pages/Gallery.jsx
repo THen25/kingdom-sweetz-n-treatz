@@ -1,3 +1,4 @@
+import emailjs from '@emailjs/browser'
 import { useState } from "react";
 import "../styles/Gallery.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
@@ -88,11 +89,33 @@ function Gallery() {
   const [reviewText, setReviewText] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log({ reviewName, reviewEmail, reviewRating, reviewText });
+  //   setSubmitted(true);
+  // };
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ reviewName, reviewEmail, reviewRating, reviewText });
-    setSubmitted(true);
-  };
+  e.preventDefault()
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_REVIEW_TEMPLATE,
+    {
+      review_name: reviewName,
+      review_email: reviewEmail,
+      review_rating: reviewRating,
+      review_text: reviewText
+    },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
+  .then(() => {
+    setSubmitted(true)
+  })
+  .catch((error) => {
+    console.error('EmailJS error:', error)
+    alert('Something went wrong. Please try again.')
+  })
+}
 
   return (
     <main>

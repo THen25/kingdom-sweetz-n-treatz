@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import "../styles/Contact.css";
 
@@ -31,39 +32,111 @@ function Contact() {
   const [orderInstructions, setOrderInstructions] = useState("");
   const [orderSubmitted, setOrderSubmitted] = useState(false);
 
+  // const handleContactSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log({ contactName, contactEmail, contactSubject, contactMessage });
+  //   setContactSubmitted(true);
+  // };
+
+  // const handleQuoteSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log({
+  //     quoteName,
+  //     quoteEmail,
+  //     quotePhone,
+  //     quoteEvent,
+  //     quoteDate,
+  //     quoteDetails,
+  //   });
+  //   setQuoteSubmitted(true);
+  // };
+
+  // const handleOrderSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log({
+  //     orderName,
+  //     orderEmail,
+  //     orderPhone,
+  //     orderItem,
+  //     orderFlavor,
+  //     orderQuantity,
+  //     orderDate,
+  //     orderInstructions,
+  //   });
+  //   setOrderSubmitted(true);
+  // };
+
   const handleContactSubmit = (e) => {
-    e.preventDefault();
-    console.log({ contactName, contactEmail, contactSubject, contactMessage });
-    setContactSubmitted(true);
-  };
+    e.preventDefault()
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE,
+      {
+        contact_name: contactName,
+        contact_email: contactEmail,
+        contact_subject: contactSubject,
+        contact_message: contactMessage
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+      setContactSubmitted(true)
+    })
+    .catch((error) => {
+      console.error("EmailJS error:", error)
+      alert("Something went wrong. Please try again.")
+    })
+  }
 
   const handleQuoteSubmit = (e) => {
-    e.preventDefault();
-    console.log({
-      quoteName,
-      quoteEmail,
-      quotePhone,
-      quoteEvent,
-      quoteDate,
-      quoteDetails,
-    });
-    setQuoteSubmitted(true);
-  };
+  e.preventDefault()
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE,
+    {
+      quote_name: quoteName,
+      quote_email: quoteEmail,
+      quote_phone: quotePhone,
+      quote_event: quoteEvent,
+      quote_date: quoteDate,
+      quote_details: quoteDetails
+    },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
+  .then(() => {
+    setQuoteSubmitted(true)
+  })
+  .catch((error) => {
+    console.error('EmailJS error:', error)
+    alert('Something went wrong. Please try again.')
+  })
+}
 
-  const handleOrderSubmit = (e) => {
-    e.preventDefault();
-    console.log({
-      orderName,
-      orderEmail,
-      orderPhone,
-      orderItem,
-      orderFlavor,
-      orderQuantity,
-      orderDate,
-      orderInstructions,
-    });
-    setOrderSubmitted(true);
-  };
+const handleOrderSubmit = (e) => {
+  e.preventDefault()
+  emailjs.send(
+    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+    import.meta.env.VITE_EMAILJS_ORDER_TEMPLATE,
+    {
+      order_name: orderName,
+      order_email: orderEmail,
+      order_phone: orderPhone,
+      order_item: orderItem,
+      order_flavor: orderFlavor,
+      order_quantity: orderQuantity,
+      order_date: orderDate,
+      order_instructions: orderInstructions
+    },
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  )
+  .then(() => {
+    setOrderSubmitted(true)
+  })
+  .catch((error) => {
+    console.error('EmailJS error:', error)
+    alert('Something went wrong. Please try again.')
+  })
+}
 
   return (
     <main>
