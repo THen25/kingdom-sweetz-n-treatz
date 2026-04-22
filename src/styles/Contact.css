@@ -190,3 +190,41 @@
 .facebook:hover {
   background-color: #0d5dbf;
 }
+
+@media (max-width: 920px) {
+  .contact-header-title {
+    font-size: 2rem;
+  }
+
+  .contact-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .tab-btn {
+    width: 100%;
+    text-align: center;
+    border: 1px solid #f0e0e8;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #f0e0e8;
+  }
+
+  .tab-btn.active {
+    background-color: #e0007a;
+    color: #ffffff;
+    border-color: #e0007a;
+    border-bottom: 1px solid #e0007a;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-header-title {
+    font-size: 1.6rem;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
