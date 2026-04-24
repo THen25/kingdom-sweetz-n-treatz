@@ -220,6 +220,27 @@
   color: #ffffff;
 }
 
+.delivery-notice {
+  background-color: #1a1a1a;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.delivery-notice-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.delivery-notice-text {
+  font-size: 1.2rem;
+  color: #ffffff;
+  line-height: 1.8;
+}
+
+.delivery-notice-text strong {
+  color: #d4af37;
+}
+
 @media (max-width: 1100px) {
   .treats-grid {
     grid-template-columns: repeat(2, 1fr);

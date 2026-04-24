@@ -121,6 +121,16 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="delivery-notice">
+        <div className="delivery-notice-container">
+          <p className="delivery-notice-text">
+            📦 <strong>Delivery Available!</strong> A delivery fee of{" "}
+            <strong>$10</strong> applies for up to 5 miles. An additional{" "}
+            <strong>$3</strong> will be charged for every additional 5 miles.
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
