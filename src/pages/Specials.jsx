@@ -1,124 +1,78 @@
-import SpecialItem from "../components/SpecialItem";
+import { useState, useEffect } from "react";
 import "../styles/Specials.css";
 
-const specialCategories = [
-  {
-    id: 1,
-    category: "Lorem, ipsum.",
-    items: [
-      {
-        id: 1,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $15",
-      },
-      {
-        id: 2,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $25",
-      },
-      {
-        id: 3,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $45",
-      },
-    ],
-  },
-  {
-    id: 2,
-    category: "Lorem, ipsum.",
-    items: [
-      {
-        id: 1,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $15",
-      },
-      {
-        id: 2,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $25",
-      },
-      {
-        id: 3,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $45",
-      },
-    ],
-  },
-  {
-    id: 3,
-    category: "Lorem, ipsum.",
-    items: [
-      {
-        id: 1,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $15",
-      },
-      {
-        id: 2,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $25",
-      },
-      {
-        id: 3,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $55",
-      },
-    ],
-  },
-  {
-    id: 4,
-    category: "Lorem, ipsum.",
-    items: [
-      {
-        id: 1,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $25",
-      },
-      {
-        id: 2,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $45",
-      },
-      {
-        id: 3,
-        name: "Lorem, ipsum dolor.",
-        description: "Lorem ipsum dolor sit amet.",
-        price: "Starting at $65",
-      },
-    ],
-  },
-];
-
 function Specials() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch("https://feeds.behold.so/V6q1sTKtMP2VkbInb02Q");
+        const data = await res.json();
+        setPosts(data.posts);
+        setLoading(false);
+      } catch {
+        setError("Unable to load posts. Please try again later.");
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, []);
+
   return (
-    <div className="special-container">
-      {specialCategories.map((category) => (
-        <div className="special-category" key={category.id}>
-          <h2 className="special-title">{category.category}</h2>
-          <div className="special-items">
-            {category.items.map((item) => (
-              <SpecialItem
-                key={item.id}
-                name={item.name}
-                description={item.description}
-                price={item.price}
-              />
-            ))}
-          </div>
+    <main>
+      <section className="specials-header">
+        <h1 className="specials-title">Specials & Promotions</h1>
+        <p className="specials-subtitle">
+          Follow us on Instagram for the latest updates and promotions!
+        </p>
+      </section>
+
+      {loading && (
+        <div className="specials-loading">
+          <p>Loading latest specials...</p>
         </div>
-      ))}
-    </div>
+      )}
+
+      {error && (
+        <div className="specials-error">
+          <p>{error}</p>
+        </div>
+      )}
+
+      {!loading && !error && (
+        <section className="specials-grid">
+          {posts.map((post) => (
+            <div className="specials-card" key={post.id}>
+              <a href={post.permalink} target="_blank" rel="noreferrer">
+                <img
+                  src={post.sizes.medium.mediaUrl}
+                  alt={post.prunedCaption || "Kingdom Sweetz Special"}
+                  className="specials-img"
+                />
+                <div className="specials-caption">
+                  <p>{post.prunedCaption}</p>
+                </div>
+              </a>
+            </div>
+          ))}
+        </section>
+      )}
+
+      <section className="specials-cta">
+        <p>Want to stay up to date?</p>
+        <a
+          href="https://www.instagram.com/kingdomsweetzntreatz"
+          target="_blank"
+          rel="noreferrer"
+          className="specials-instagram-btn"
+        >
+          Follow us on Instagram
+        </a>
+      </section>
+    </main>
   );
 }
 

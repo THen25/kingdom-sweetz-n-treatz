@@ -1,54 +1,110 @@
-.special-container {
-  max-width: 900px;
+.specials-header {
+  background-color: #fdf6f9;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+  border-bottom: 1px solid #f0e0e8;
+}
+
+.specials-title {
+  font-size: 3rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.specials-subtitle {
+  font-size: 1.1rem;
+  color: #666666;
+  line-height: 1.8;
+}
+
+.specials-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1rem;
+  color: #666666;
+}
+
+.specials-error {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1rem;
+  color: #e0007a;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
 
-.special-category {
-  margin-bottom: 3rem;
-}
-
-.special-title {
-  font-size: 2rem;
-  color: #e0007a;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #f0e0e8;
-}
-
-.special-items {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.special-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 1.25rem;
-  background-color: #fdf6f9;
+.specials-card {
   border-radius: 8px;
+  overflow: hidden;
   border: 1px solid #f0e0e8;
+  transition: transform 0.3s ease;
 }
 
-.special-item-info h3 {
-  font-size: 1.2rem;
-  color: #1a1a1a;
-  margin-bottom: 0.4rem;
+.specials-card:hover {
+  transform: translateY(-5px);
 }
 
-.special-item-info p {
-  font-size: 0.95rem;
+.specials-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.specials-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.specials-caption {
+  padding: 1rem;
+  background-color: #fdf6f9;
+}
+
+.specials-caption p {
+  font-size: 0.9rem;
   color: #666666;
   line-height: 1.6;
-  max-width: 600px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.special-item-price {
-  font-size: 0.95rem;
+.specials-cta {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+  border-top: 1px solid #f0e0e8;
+}
+
+.specials-cta p {
+  font-size: 1.1rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.specials-instagram-btn {
+  display: inline-block;
+  padding: 0.9rem 2.5rem;
+  background-color: #e0007a;
+  color: #ffffff;
+  text-decoration: none;
   font-weight: 700;
-  color: #e0007a;
-  white-space: nowrap;
-  margin-left: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.specials-instagram-btn:hover {
+  background-color: #b8005e;
 }
