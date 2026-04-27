@@ -31,112 +31,116 @@ function Contact() {
   const [orderDate, setOrderDate] = useState("");
   const [orderInstructions, setOrderInstructions] = useState("");
   const [orderSubmitted, setOrderSubmitted] = useState(false);
-
-  // const handleContactSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log({ contactName, contactEmail, contactSubject, contactMessage });
-  //   setContactSubmitted(true);
-  // };
-
-  // const handleQuoteSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log({
-  //     quoteName,
-  //     quoteEmail,
-  //     quotePhone,
-  //     quoteEvent,
-  //     quoteDate,
-  //     quoteDetails,
-  //   });
-  //   setQuoteSubmitted(true);
-  // };
-
-  // const handleOrderSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log({
-  //     orderName,
-  //     orderEmail,
-  //     orderPhone,
-  //     orderItem,
-  //     orderFlavor,
-  //     orderQuantity,
-  //     orderDate,
-  //     orderInstructions,
-  //   });
-  //   setOrderSubmitted(true);
-  // };
+  const [dateAvailable, setDateAvailable] = useState(null);
+  const [checkingDate, setCheckingDate] = useState(false);
 
   const handleContactSubmit = (e) => {
-    e.preventDefault()
-    emailjs.send(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE,
-      {
-        contact_name: contactName,
-        contact_email: contactEmail,
-        contact_subject: contactSubject,
-        contact_message: contactMessage
-      },
-      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-    )
-    .then(() => {
-      setContactSubmitted(true)
-    })
-    .catch((error) => {
-      console.error("EmailJS error:", error)
-      alert("Something went wrong. Please try again.")
-    })
-  }
+    e.preventDefault();
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE,
+        {
+          contact_name: contactName,
+          contact_email: contactEmail,
+          contact_subject: contactSubject,
+          contact_message: contactMessage,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setContactSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Something went wrong. Please try again.");
+      });
+  };
 
   const handleQuoteSubmit = (e) => {
-  e.preventDefault()
-  emailjs.send(
-    import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE,
-    {
-      quote_name: quoteName,
-      quote_email: quoteEmail,
-      quote_phone: quotePhone,
-      quote_event: quoteEvent,
-      quote_date: quoteDate,
-      quote_details: quoteDetails
-    },
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-  )
-  .then(() => {
-    setQuoteSubmitted(true)
-  })
-  .catch((error) => {
-    console.error('EmailJS error:', error)
-    alert('Something went wrong. Please try again.')
-  })
-}
+    e.preventDefault();
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE,
+        {
+          quote_name: quoteName,
+          quote_email: quoteEmail,
+          quote_phone: quotePhone,
+          quote_event: quoteEvent,
+          quote_date: quoteDate,
+          quote_details: quoteDetails,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setQuoteSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Something went wrong. Please try again.");
+      });
+  };
 
-const handleOrderSubmit = (e) => {
-  e.preventDefault()
-  emailjs.send(
-    import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    import.meta.env.VITE_EMAILJS_ORDER_TEMPLATE,
-    {
-      order_name: orderName,
-      order_email: orderEmail,
-      order_phone: orderPhone,
-      order_item: orderItem,
-      order_flavor: orderFlavor,
-      order_quantity: orderQuantity,
-      order_date: orderDate,
-      order_instructions: orderInstructions
-    },
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-  )
-  .then(() => {
-    setOrderSubmitted(true)
-  })
-  .catch((error) => {
-    console.error('EmailJS error:', error)
-    alert('Something went wrong. Please try again.')
-  })
-}
+  const handleOrderSubmit = (e) => {
+    e.preventDefault();
+    if (dateAvailable === false) {
+      alert("Please select an available date before submitting.");
+      return;
+    }
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_ORDER_TEMPLATE,
+        {
+          order_name: orderName,
+          order_email: orderEmail,
+          order_phone: orderPhone,
+          order_item: orderItem,
+          order_flavor: orderFlavor,
+          order_quantity: orderQuantity,
+          order_date: orderDate,
+          order_instructions: orderInstructions,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setOrderSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Something went wrong. Please try again.");
+      });
+  };
+
+  const checkDateAvailability = async (date) => {
+    if (!date) return;
+    setCheckingDate(true);
+    setDateAvailable(null);
+
+    const calendarId = encodeURIComponent(
+      import.meta.env.VITE_GOOGLE_CALENDAR_ID,
+    );
+    const apiKey = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+    const timeMin = `${date}T00:00:00Z`;
+    const timeMax = `${date}T23:59:59Z`;
+
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}&timeMin=${timeMin}&timeMax=${timeMax}&singleEvents=true`;
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      if (data.items && data.items.length > 0) {
+        setDateAvailable(false);
+      } else {
+        setDateAvailable(true);
+      }
+    } catch {
+      setDateAvailable(null);
+    } finally {
+      setCheckingDate(false);
+    }
+  };
 
   return (
     <main>
@@ -420,9 +424,26 @@ const handleOrderSubmit = (e) => {
                       type="date"
                       id="orderDate"
                       value={orderDate}
-                      onChange={(e) => setOrderDate(e.target.value)}
+                      onChange={(e) => {
+                        setOrderDate(e.target.value);
+                        checkDateAvailability(e.target.value);
+                      }}
                       required
                     />
+                    {checkingDate && (
+                      <p className="date-checking">Checking availability...</p>
+                    )}
+                    {dateAvailable === true && (
+                      <p className="date-available">
+                        ✅ This date is available!
+                      </p>
+                    )}
+                    {dateAvailable === false && (
+                      <p className="date-unavailable">
+                        ❌ Sorry, this date is unavailable. Please choose
+                        another date.
+                      </p>
+                    )}
                   </div>
                   <div className="form-group">
                     <label htmlFor="orderInstructions">
@@ -435,6 +456,16 @@ const handleOrderSubmit = (e) => {
                       onChange={(e) => setOrderInstructions(e.target.value)}
                       rows="5"
                     />
+                  </div>
+                  <div className="payment-policy">
+                    <h4>Payment Policy</h4>
+                    <p>
+                      A <strong>50% deposit</strong> is required at the time of
+                      booking to secure your order. The remaining balance is due{" "}
+                      <strong>14 days before</strong> your service date. Our
+                      team will reach out with payment instructions after your
+                      order is received.
+                    </p>
                   </div>
                   <button type="submit" className="form-submit-btn">
                     Place Order
