@@ -22,10 +22,11 @@
   font-size: 4rem;
   color: #ffffff;
   margin-bottom: 1rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .hero-tagline {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin-bottom: 2rem;
   font-weight: 300;
   letter-spacing: 0.05em;
@@ -68,7 +69,7 @@
 }
 
 .about-text {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.9;
   color: #444444;
   margin-bottom: 1.5rem;
@@ -80,59 +81,6 @@
   font-style: italic;
   font-weight: 700;
   margin-top: 1rem;
-}
-
-.treats {
-  padding: 5rem 2rem;
-  background-color: #ffffff;
-  text-align: center;
-}
-
-.treats-title {
-  font-size: 2.5rem;
-  color: #1a1a1a;
-  margin-bottom: 3rem;
-}
-
-.treats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.treat-card {
-  border: 1px solid #f0e0e8;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.treat-card:hover {
-  transform: translateY(-5px);
-}
-
-.treat-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.treat-info {
-  padding: 1.5rem;
-}
-
-.treat-info h3 {
-  font-size: 1.4rem;
-  color: #1a1a1a;
-  margin-bottom: 0.5rem;
-}
-
-.treat-info p {
-  font-size: 0.95rem;
-  color: #666666;
-  line-height: 1.7;
 }
 
 .scripture-banner {
@@ -174,7 +122,7 @@
 }
 
 .cta-text {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   color: #666666;
   line-height: 1.8;
   margin-bottom: 2.5rem;
@@ -241,12 +189,6 @@
   color: #d4af37;
 }
 
-@media (max-width: 1100px) {
-  .treats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 920px) {
   .hero {
     height: 70vh;
@@ -259,10 +201,6 @@
 
   .hero-tagline {
     font-size: 1rem;
-  }
-
-  .treats-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-title {
@@ -294,10 +232,6 @@
 
   .hero-tagline {
     font-size: 0.9rem;
-  }
-
-  .treats-grid {
-    grid-template-columns: 1fr;
   }
 
   .scripture-verse {

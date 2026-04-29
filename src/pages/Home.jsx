@@ -1,35 +1,4 @@
 import "../styles/Home.css";
-import strawberryCups from "../assets/strawberry-cups.jpg";
-import lemonCupcakes from "../assets/lemon-cupcakes.jpg";
-import coachCake from "../assets/coach-cake.jpg";
-import cheesecakeShooters from "../assets/cheesecake-shooters.jpg";
-
-const treats = [
-  {
-    id: 1,
-    image: strawberryCups,
-    title: "Custom Cake Shooters",
-    description: "Cake Shooters with Cream Cheese Butter Cream",
-  },
-  {
-    id: 2,
-    image: cheesecakeShooters,
-    title: "Custom Cheesecake Shooters",
-    description: "Custom Cheesecake Shooters",
-  },
-  {
-    id: 3,
-    image: lemonCupcakes,
-    title: "Custom Cupcakes",
-    description: "1/2 Dozen lemon Cupcakes with Vanilla Butter Cream",
-  },
-  {
-    id: 4,
-    image: coachCake,
-    title: "Custom Bento Box",
-    description: "5 inch chocolate cake with 5 cupcakes",
-  },
-];
 
 function Home() {
   return (
@@ -79,21 +48,6 @@ function Home() {
             with physical food but spiritually as well.
           </p>
           <p className="about-scripture">Matthew 4:4 — God Bless!</p>
-        </div>
-      </section>
-
-      <section className="treats">
-        <h2 className="treats-title">Featured Sweet Creations</h2>
-        <div className="treats-grid">
-          {treats.map((treat) => (
-            <div className="treat-card" key={treat.id}>
-              <img src={treat.image} alt={treat.title} className="treat-img" />
-              <div className="treat-info">
-                <h3>{treat.title}</h3>
-                <p>{treat.description}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 

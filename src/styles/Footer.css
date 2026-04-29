@@ -34,8 +34,8 @@
 }
 
 .footer-tagline {
-  font-size: 0.95rem;
-  color: #aaaaaa;
+  font-size: 1rem;
+  color: #ffffff;
   line-height: 1.8;
   max-width: 300px;
 }
@@ -117,5 +117,9 @@
 
 .footer-bottom p {
   font-size: 0.85rem;
-  color: #666666;
+  color: #aaaaaa;
+}
+
+.footer-bottom .footer-credit {
+  color: #d4af37;
 }

@@ -57,7 +57,7 @@ function Footer() {
           &copy; {new Date().getFullYear()} Kingdom Sweetz & Treatz LLC. All
           rights reserved.
         </p>
-        <p>Designed & Developed by TAHJ</p>
+        <p className="footer-credit">Designed & Developed by Tahjstudio</p>
       </div>
     </footer>
   );
