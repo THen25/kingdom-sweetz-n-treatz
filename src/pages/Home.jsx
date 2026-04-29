@@ -1,12 +1,10 @@
 import "../styles/Home.css";
+import heroBg from "../assets/hero-bg.jpg";
 
 function Home() {
   return (
     <main>
-      <section
-        className="hero"
-        style={{ backgroundImage: `url(src/assets/hero-bg.jpg` }}
-      >
+      <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
         <div className="hero-overlay">
           <h1 className="hero-title">Kingdom Sweetz & Treatz LLC</h1>
           <p className="hero-tagline">
