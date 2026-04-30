@@ -1,9 +1,11 @@
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../styles/Contact.css";
 
 function Contact() {
-  const [activeTab, setActiveTab] = useState("contact");
+  const { state } = useLocation();
+  const [activeTab, setActiveTab] = useState(state?.tab ?? "contact");
 
   // Contact form state
   const [contactName, setContactName] = useState("");

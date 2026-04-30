@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import heroBg from "../assets/hero-bg.jpg";
 
@@ -10,9 +11,9 @@ function Home() {
           <p className="hero-tagline">
             Where faith inspires every recipe and love is baked into every bite.
           </p>
-          <a href="/order" className="hero-btn">
+          <Link to="/contact" state={{ tab: "order" }} className="hero-btn">
             Place an Order
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -64,9 +65,9 @@ function Home() {
             something sweet, we're here to make it memorable.
           </p>
           <div className="cta-buttons">
-            <a href="/order" className="cta-btn-primary">
+            <Link to="/contact" state={{ tab: "order" }} className="cta-btn-primary">
               Place an Order
-            </a>
+            </Link>
             <a href="/contact" className="cta-btn-secondary">
               Get a Quote
             </a>
