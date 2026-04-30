@@ -42,7 +42,13 @@ function Specials() {
         </div>
       )}
 
-      {!loading && !error && (
+      {!loading && !error && posts.length === 0 && (
+        <div className="specials-empty">
+          <p>No specials right now — check back soon or follow us on Instagram!</p>
+        </div>
+      )}
+
+      {!loading && !error && posts.length > 0 && (
         <section className="specials-grid">
           {posts.map((post) => (
             <div className="specials-card" key={post.id}>
@@ -64,7 +70,7 @@ function Specials() {
       <section className="specials-cta">
         <p>Want to stay up to date?</p>
         <a
-          href="https://www.instagram.com/kingdomsweetzntreatz"
+          href="https://www.instagram.com/kingdom_sweetz_n_treatz"
           target="_blank"
           rel="noreferrer"
           className="specials-instagram-btn"

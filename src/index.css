@@ -19,3 +19,9 @@ h2,
 h3 {
   font-family: "Cormorant Garamond", serif;
 }
+
+.form-error {
+  font-size: 0.9rem;
+  color: #cc0000;
+  margin-bottom: 0.5rem;
+}

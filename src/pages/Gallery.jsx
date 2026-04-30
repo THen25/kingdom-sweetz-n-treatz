@@ -1,4 +1,4 @@
-import emailjs from '@emailjs/browser'
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import "../styles/Gallery.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
@@ -12,6 +12,8 @@ import doubleChocolateCake from "../assets/double-chocolate-cake.jpg";
 import gingerbreadCupcakes from "../assets/gingerbread-cupcakes.jpg";
 import fathersDayCupcakes from "../assets/fathers-day-cupcakes.jpg";
 import fathersDayBox from "../assets/fathers-day-box.jpg";
+import customInitialCake from "../assets/custom-initial-cake.jpg";
+import customFaceplateCake from "../assets/custom-faceplate-cake.jpg";
 
 const galleryItems = [
   {
@@ -65,7 +67,7 @@ const galleryItems = [
   {
     id: 9,
     image: gingerbreadCupcakes,
-    title: "Custom Gingerbread Cupakes",
+    title: "Custom Gingerbread Cupcakes",
     category: "Cupcakes",
   },
   {
@@ -80,6 +82,18 @@ const galleryItems = [
     title: "Custom Father's Day Box",
     category: "Cupcakes",
   },
+  {
+    id: 12,
+    image: customInitialCake,
+    title: "Custom Initial Cake",
+    category: "Cakes",
+  },
+  {
+    id: 13,
+    image: customFaceplateCake,
+    title: "Custom Cake with Decor",
+    category: "Cakes",
+  },
 ];
 
 function Gallery() {
@@ -88,34 +102,30 @@ function Gallery() {
   const [reviewRating, setReviewRating] = useState("5");
   const [reviewText, setReviewText] = useState("");
   const [submitted, setSubmitted] = useState(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log({ reviewName, reviewEmail, reviewRating, reviewText });
-  //   setSubmitted(true);
-  // };
+  const [reviewError, setReviewError] = useState("");
 
   const handleSubmit = (e) => {
-  e.preventDefault()
-  emailjs.send(
-    import.meta.env.VITE_EMAILJS_SERVICE_ID,
-    import.meta.env.VITE_EMAILJS_REVIEW_TEMPLATE,
-    {
-      review_name: reviewName,
-      review_email: reviewEmail,
-      review_rating: reviewRating,
-      review_text: reviewText
-    },
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-  )
-  .then(() => {
-    setSubmitted(true)
-  })
-  .catch((error) => {
-    console.error('EmailJS error:', error)
-    alert('Something went wrong. Please try again.')
-  })
-}
+    e.preventDefault();
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_REVIEW_TEMPLATE,
+        {
+          review_name: reviewName,
+          review_email: reviewEmail,
+          review_rating: reviewRating,
+          review_text: reviewText,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setSubmitted(true);
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        setReviewError("Something went wrong. Please try again.");
+      });
+  };
 
   return (
     <main>
@@ -151,28 +161,6 @@ function Gallery() {
           </a>
         </div>
       </section>
-      <section className="client-review-section">
-        <h2 className="client-review-title">What Our Clients Say About Us</h2>
-        <div className="client-review-container">
-          <div className="client-review">
-            <p>
-              "Thank you so much! The cake and desserts were a hit!! They loved
-              everything! It was perfect!"
-            </p>
-            <p className="client-review-name">— Regina C.</p>
-          </div>
-          <div className="client-review">
-            <p></p>
-          </div>
-          <div className="client-review">
-            <p></p>
-          </div>
-          <div className="client-review">
-            <p></p>
-          </div>
-        </div>
-      </section>
-
       <section className="review-form-section">
         <div className="review-form-container">
           <h2 className="review-form-title">Leave a Review</h2>
@@ -240,6 +228,7 @@ function Gallery() {
                 />
               </div>
 
+              {reviewError && <p className="form-error">{reviewError}</p>}
               <button type="submit" className="review-submit-btn">
                 Submit Review
               </button>

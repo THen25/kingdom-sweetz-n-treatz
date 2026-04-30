@@ -62,20 +62,13 @@ const menuCategories = [
       },
       {
         id: 2,
-        name: "Chocolate Covered Strawberries",
-        description:
-          "Fresh strawberries dipped in premium chocolate and decorated with care.",
-        price: "Starting at $25/dozen",
-      },
-      {
-        id: 3,
         name: "Cinnamon Rolls",
         description:
           "Soft, fluffy homemade cinnamon rolls with cream cheese icing.",
         price: "Starting at $30/dozen",
       },
       {
-        id: 4,
+        id: 3,
         name: "Cookies",
         description: "Freshly baked cookies available in a variety of flavors.",
         price: "Starting at $20/dozen",

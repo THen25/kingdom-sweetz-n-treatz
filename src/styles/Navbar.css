@@ -5,6 +5,7 @@
   padding: 0.5rem 2rem;
   background-color: #ffffff;
   border-bottom: 2px solid #d4af37;
+  position: relative;
 }
 
 .logo-text {
@@ -70,7 +71,7 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     width: 100%;
     background-color: #ffffff;

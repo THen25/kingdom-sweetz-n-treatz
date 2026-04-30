@@ -11,6 +11,7 @@ function Contact() {
   const [contactSubject, setContactSubject] = useState("");
   const [contactMessage, setContactMessage] = useState("");
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [contactError, setContactError] = useState("");
 
   // Quote form state
   const [quoteName, setQuoteName] = useState("");
@@ -20,6 +21,7 @@ function Contact() {
   const [quoteDate, setQuoteDate] = useState("");
   const [quoteDetails, setQuoteDetails] = useState("");
   const [quoteSubmitted, setQuoteSubmitted] = useState(false);
+  const [quoteError, setQuoteError] = useState("");
 
   // Order form state
   const [orderName, setOrderName] = useState("");
@@ -31,6 +33,7 @@ function Contact() {
   const [orderDate, setOrderDate] = useState("");
   const [orderInstructions, setOrderInstructions] = useState("");
   const [orderSubmitted, setOrderSubmitted] = useState(false);
+  const [orderError, setOrderError] = useState("");
   const [dateAvailable, setDateAvailable] = useState(null);
   const [checkingDate, setCheckingDate] = useState(false);
 
@@ -53,7 +56,7 @@ function Contact() {
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        alert("Something went wrong. Please try again.");
+        setContactError("Something went wrong. Please try again.");
       });
   };
 
@@ -78,7 +81,7 @@ function Contact() {
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        alert("Something went wrong. Please try again.");
+        setQuoteError("Something went wrong. Please try again.");
       });
   };
 
@@ -109,7 +112,7 @@ function Contact() {
       })
       .catch((error) => {
         console.error("EmailJS error:", error);
-        alert("Something went wrong. Please try again.");
+        setOrderError("Something went wrong. Please try again.");
       });
   };
 
@@ -230,6 +233,7 @@ function Contact() {
                       required
                     />
                   </div>
+                  {contactError && <p className="form-error">{contactError}</p>}
                   <button type="submit" className="form-submit-btn">
                     Send Message
                   </button>
@@ -321,6 +325,7 @@ function Contact() {
                       required
                     />
                   </div>
+                  {quoteError && <p className="form-error">{quoteError}</p>}
                   <button type="submit" className="form-submit-btn">
                     Request Quote
                   </button>
@@ -467,6 +472,7 @@ function Contact() {
                       order is received.
                     </p>
                   </div>
+                  {orderError && <p className="form-error">{orderError}</p>}
                   <button type="submit" className="form-submit-btn">
                     Place Order
                   </button>
