@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #ead3e3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,6 +188,13 @@
 
 .delivery-notice-text strong {
   color: #d4af37;
+}
+
+@media (min-width: 921px) {
+  .hero {
+    background-size: contain;
+    background-position: center center;
+  }
 }
 
 @media (max-width: 920px) {

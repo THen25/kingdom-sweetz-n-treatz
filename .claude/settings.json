@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(npm audit *)",
+      "Bash(npm --version)",
+      "Bash(identify /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz/src/assets/hero-bg.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz/src/assets/hero-bg.jpg)"
+    ]
+  }
+}
