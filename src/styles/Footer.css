@@ -123,3 +123,8 @@
 .footer-bottom .footer-credit {
   color: #d4af37;
 }
+
+.footer-bottom .footer-credit a {
+  color: #d4af37;
+  text-decoration: none;
+}
