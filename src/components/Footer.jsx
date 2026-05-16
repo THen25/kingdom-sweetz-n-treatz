@@ -59,7 +59,9 @@ function Footer() {
         </p>
         <p className="footer-credit">
           Designed & Developed by{" "}
-          <a href="https://tahjstudio.com/" target="_blank" rel="noreferrer">Tahjstudio</a>
+          <a href="https://tahjstudio.com/" target="_blank" rel="noreferrer">
+            Tahjstudio
+          </a>
         </p>
       </div>
     </footer>
