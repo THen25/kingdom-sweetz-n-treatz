@@ -17,5 +17,36 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Netlify form detection — hidden from users, read by Netlify's build bot -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="contact_name" />
+      <input name="contact_email" />
+      <input name="contact_subject" />
+      <textarea name="contact_message"></textarea>
+    </form>
+
+    <form name="quote" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="quote_name" />
+      <input name="quote_email" />
+      <input name="quote_phone" />
+      <select name="quote_event"></select>
+      <input name="quote_date" />
+      <textarea name="quote_details"></textarea>
+    </form>
+
+    <form name="order" netlify netlify-honeypot="bot-field" hidden>
+      <input name="bot-field" />
+      <input name="order_name" />
+      <input name="order_email" />
+      <input name="order_phone" />
+      <select name="order_item"></select>
+      <input name="order_flavor" />
+      <input name="order_quantity" />
+      <input name="order_date" />
+      <textarea name="order_instructions"></textarea>
+    </form>
   </body>
 </html>

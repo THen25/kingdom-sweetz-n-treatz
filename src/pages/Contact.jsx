@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../styles/Contact.css";
@@ -41,50 +40,38 @@ function Contact() {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE,
-        {
-          contact_name: contactName,
-          contact_email: contactEmail,
-          contact_subject: contactSubject,
-          contact_message: contactMessage,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(() => {
-        setContactSubmitted(true);
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        setContactError("Something went wrong. Please try again.");
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        "form-name": "contact",
+        contact_name: contactName,
+        contact_email: contactEmail,
+        contact_subject: contactSubject,
+        contact_message: contactMessage,
+      }).toString(),
+    })
+      .then(() => setContactSubmitted(true))
+      .catch(() => setContactError("Something went wrong. Please try again."));
   };
 
   const handleQuoteSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE,
-        {
-          quote_name: quoteName,
-          quote_email: quoteEmail,
-          quote_phone: quotePhone,
-          quote_event: quoteEvent,
-          quote_date: quoteDate,
-          quote_details: quoteDetails,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(() => {
-        setQuoteSubmitted(true);
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        setQuoteError("Something went wrong. Please try again.");
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        "form-name": "quote",
+        quote_name: quoteName,
+        quote_email: quoteEmail,
+        quote_phone: quotePhone,
+        quote_event: quoteEvent,
+        quote_date: quoteDate,
+        quote_details: quoteDetails,
+      }).toString(),
+    })
+      .then(() => setQuoteSubmitted(true))
+      .catch(() => setQuoteError("Something went wrong. Please try again."));
   };
 
   const handleOrderSubmit = (e) => {
@@ -93,29 +80,23 @@ function Contact() {
       alert("Please select an available date before submitting.");
       return;
     }
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_ORDER_TEMPLATE,
-        {
-          order_name: orderName,
-          order_email: orderEmail,
-          order_phone: orderPhone,
-          order_item: orderItem,
-          order_flavor: orderFlavor,
-          order_quantity: orderQuantity,
-          order_date: orderDate,
-          order_instructions: orderInstructions,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(() => {
-        setOrderSubmitted(true);
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        setOrderError("Something went wrong. Please try again.");
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        "form-name": "order",
+        order_name: orderName,
+        order_email: orderEmail,
+        order_phone: orderPhone,
+        order_item: orderItem,
+        order_flavor: orderFlavor,
+        order_quantity: orderQuantity,
+        order_date: orderDate,
+        order_instructions: orderInstructions,
+      }).toString(),
+    })
+      .then(() => setOrderSubmitted(true))
+      .catch(() => setOrderError("Something went wrong. Please try again."));
   };
 
   const checkDateAvailability = async (date) => {
@@ -190,7 +171,15 @@ function Contact() {
                   </p>
                 </div>
               ) : (
-                <form className="contact-form" onSubmit={handleContactSubmit}>
+                <form
+                  className="contact-form"
+                  name="contact"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleContactSubmit}
+                >
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="form-group">
                     <label htmlFor="contactName">Your Name</label>
                     <input
@@ -254,7 +243,15 @@ function Contact() {
                   </p>
                 </div>
               ) : (
-                <form className="contact-form" onSubmit={handleQuoteSubmit}>
+                <form
+                  className="contact-form"
+                  name="quote"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleQuoteSubmit}
+                >
+                  <input type="hidden" name="form-name" value="quote" />
                   <div className="form-group">
                     <label htmlFor="quoteName">Your Name</label>
                     <input
@@ -346,7 +343,15 @@ function Contact() {
                   </p>
                 </div>
               ) : (
-                <form className="contact-form" onSubmit={handleOrderSubmit}>
+                <form
+                  className="contact-form"
+                  name="order"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleOrderSubmit}
+                >
+                  <input type="hidden" name="form-name" value="order" />
                   <div className="form-group">
                     <label htmlFor="orderName">Your Name</label>
                     <input
