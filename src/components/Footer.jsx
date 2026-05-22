@@ -45,6 +45,13 @@ function Footer() {
             >
               Instagram
             </a>
+            <a
+              href="https://www.facebook.com/people/Kingdom-Sweetz-Treatz-LLC/61589654441912/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </a>
           </div>
           <p className="footer-scripture">
             "Taste and see that the Lord is good." — Psalm 34:8

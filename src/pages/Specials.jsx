@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
 import "../styles/Specials.css";
+import bananaPuddingCups from "../assets/Banana-Pudding-Cups-Pic.png";
+import kingdomCravingsBox from "../assets/kingdom-cravings-box.png";
+import happyFathersDayFlyer from "../assets/happy-fathers-day-flyer.jpg";
 
 function Specials() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [flyerOpen, setFlyerOpen] = useState(false);
+
+  useEffect(() => {
+    if (!flyerOpen) return;
+    const handleKey = (e) => {
+      if (e.key === "Escape") setFlyerOpen(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [flyerOpen]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -30,6 +43,38 @@ function Specials() {
         </p>
       </section>
 
+      <section className="monthly-specials">
+        <h2 className="monthly-specials-title">Father's Day Special</h2>
+        <div className="specials-container">
+          <img
+            src={happyFathersDayFlyer}
+            alt="Father's Day Flyer"
+            className="flyer-trigger"
+            onClick={() => setFlyerOpen(true)}
+          />
+          <img src={bananaPuddingCups} alt="Banana Pudding Cups" />
+          <img src={kingdomCravingsBox} alt="Kingdom Cravings Box" />
+        </div>
+      </section>
+
+      {flyerOpen && (
+        <div className="flyer-modal-overlay" onClick={() => setFlyerOpen(false)}>
+          <button
+            className="flyer-modal-close"
+            onClick={() => setFlyerOpen(false)}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <img
+            src={happyFathersDayFlyer}
+            alt="Father's Day Flyer"
+            className="flyer-modal-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+
       {loading && (
         <div className="specials-loading">
           <p>Loading latest specials...</p>
@@ -44,7 +89,9 @@ function Specials() {
 
       {!loading && !error && posts.length === 0 && (
         <div className="specials-empty">
-          <p>No specials right now — check back soon or follow us on Instagram!</p>
+          <p>
+            No specials right now — check back soon or follow us on Instagram!
+          </p>
         </div>
       )}
 
