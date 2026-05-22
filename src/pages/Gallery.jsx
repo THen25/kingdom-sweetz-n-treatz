@@ -1,4 +1,3 @@
-import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import "../styles/Gallery.css";
 import strawberryCups from "../assets/strawberry-cups.jpg";
@@ -106,25 +105,19 @@ function Gallery() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_REVIEW_TEMPLATE,
-        {
-          review_name: reviewName,
-          review_email: reviewEmail,
-          review_rating: reviewRating,
-          review_text: reviewText,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      )
-      .then(() => {
-        setSubmitted(true);
-      })
-      .catch((error) => {
-        console.error("EmailJS error:", error);
-        setReviewError("Something went wrong. Please try again.");
-      });
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        "form-name": "review",
+        review_name: reviewName,
+        review_email: reviewEmail,
+        review_rating: reviewRating,
+        review_text: reviewText,
+      }).toString(),
+    })
+      .then(() => setSubmitted(true))
+      .catch(() => setReviewError("Something went wrong. Please try again."));
   };
 
   return (
@@ -176,7 +169,15 @@ function Gallery() {
               </p>
             </div>
           ) : (
-            <form className="review-form" onSubmit={handleSubmit}>
+            <form
+              className="review-form"
+              name="review"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="review" />
               <div className="form-group">
                 <label htmlFor="reviewName">Your Name</label>
                 <input
