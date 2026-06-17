@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import "../styles/Specials.css";
-import bananaPuddingCups from "../assets/Banana-Pudding-Cups-Pic.png";
-import kingdomCravingsBox from "../assets/kingdom-cravings-box.png";
 
 function Specials() {
   const [posts, setPosts] = useState([]);
@@ -32,13 +30,6 @@ function Specials() {
         </p>
       </section>
 
-      <section className="monthly-specials">
-        <h2 className="monthly-specials-title">Father's Day Special</h2>
-        <div className="specials-container">
-          <img src={bananaPuddingCups} alt="Banana Pudding Cups" />
-          <img src={kingdomCravingsBox} alt="Kingdom Cravings Box" />
-        </div>
-      </section>
 
       {loading && (
         <div className="specials-loading">
