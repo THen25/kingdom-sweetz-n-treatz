@@ -140,6 +140,31 @@ function Contact() {
 
       <section className="contact-section">
         <div className="contact-container">
+          <div className="booking-disclaimer">
+            <p className="booking-disclaimer-heading">
+              Please Read Before Submitting Your Request
+            </p>
+            <p className="booking-disclaimer-alert">
+              No dates are guaranteed without a deposit.
+            </p>
+            <p>
+              To provide the best service to all clients, requested dates are
+              held for a maximum of <strong>24 hours</strong> after an invoice
+              is issued. If the required deposit is not received within 24
+              hours, the date will be released without notice and made available
+              to other customers.
+            </p>
+            <p>
+              Kingdom Sweetz &amp; Treatz LLC operates on a{" "}
+              <strong>first-paid, first-served</strong> basis. No orders will
+              be scheduled, prepared, or fulfilled without a deposit and a
+              confirmed booking.
+            </p>
+            <p>
+              <strong>All deposits are non-refundable.</strong>
+            </p>
+          </div>
+
           <div className="contact-tabs">
             <button
               className={`tab-btn ${activeTab === "contact" ? "active" : ""}`}

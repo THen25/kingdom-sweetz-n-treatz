@@ -26,7 +26,7 @@
 
 .specials-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
@@ -45,62 +45,7 @@
   box-shadow: 0 8px 24px rgba(224, 0, 122, 0.12);
 }
 
-.flyer-trigger {
-  cursor: zoom-in;
-}
 
-.flyer-modal-overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 2rem;
-  animation: flyerFadeIn 0.2s ease;
-}
-
-@keyframes flyerFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.flyer-modal-img {
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-}
-
-.flyer-modal-close {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  border: none;
-  color: #ffffff;
-  font-size: 1.25rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.flyer-modal-close:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-@media (max-width: 768px) {
-  .specials-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 @media (max-width: 480px) {
   .specials-container {
