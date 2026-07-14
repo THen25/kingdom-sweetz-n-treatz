@@ -156,8 +156,8 @@ function Contact() {
             </p>
             <p>
               Kingdom Sweetz &amp; Treatz LLC operates on a{" "}
-              <strong>first-paid, first-served</strong> basis. No orders will
-              be scheduled, prepared, or fulfilled without a deposit and a
+              <strong>first-paid, first-served</strong> basis. No orders will be
+              scheduled, prepared, or fulfilled without a deposit and a
               confirmed booking.
             </p>
             <p>
@@ -528,6 +528,14 @@ function Contact() {
             className="social-btn instagram"
           >
             Instagram
+          </a>
+          <a
+            href="https://www.facebook.com/people/Kingdom-Sweetz-Treatz-LLC/61589654441912/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-btn instagram"
+          >
+            Facebook
           </a>
         </div>
       </section>

@@ -25,3 +25,11 @@ h3 {
   color: #cc0000;
   margin-bottom: 0.5rem;
 }
+
+.testimonials-section {
+  font-size: 1.3rem;
+}
+
+.testimonial-name {
+  margin-right: 8px;
+}

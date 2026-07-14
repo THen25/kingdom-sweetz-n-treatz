@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/Gallery.css";
+import TestimonialsSection from "../components/TestimonialsSection";
 import strawberryCups from "../assets/strawberry-cups.jpg";
 import lemonCupcakes from "../assets/lemon-cupcakes.jpg";
 import coachCake from "../assets/coach-cake.jpg";
@@ -151,14 +152,11 @@ function Gallery() {
       </section>
       <section className="gallery-cta">
         <div className="gallery-cta-container">
-          <h2 className="gallery-cta-title">Love What You See?</h2>
+          <h2 className="gallery-cta-title">What Our Customers Are Saying</h2>
           <p className="gallery-cta-text">
-            Every creation is made to order — just for you. Let's make something
-            beautiful together.
+            Real reviews from real people who've tasted the difference.
           </p>
-          <a href="/order" className="gallery-cta-btn">
-            Place an Order
-          </a>
+          <TestimonialsSection />
         </div>
       </section>
       <section className="review-form-section">
