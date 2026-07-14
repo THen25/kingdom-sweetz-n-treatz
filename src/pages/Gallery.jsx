@@ -13,6 +13,7 @@ import fathersDayCupcakes from "../assets/fathers-day-cupcakes.jpg";
 import fathersDayBox from "../assets/fathers-day-box.jpg";
 import customInitialCake from "../assets/custom-initial-cake.jpg";
 import customFaceplateCake from "../assets/custom-faceplate-cake.jpg";
+import princessAndTheFrogCupcakes from "../assets/princess-and-the-frog-cupcakes.jpg";
 
 const galleryItems = [
   {
@@ -91,6 +92,12 @@ const galleryItems = [
     id: 13,
     image: customFaceplateCake,
     title: "Custom Cake with Decor",
+    category: "Cakes",
+  },
+  {
+    id: 14,
+    image: princessAndTheFrogCupcakes,
+    title: "Custom The Princess and the Frog Birthday Cupcakes",
     category: "Cakes",
   },
 ];

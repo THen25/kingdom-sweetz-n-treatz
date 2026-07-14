@@ -9,7 +9,10 @@
       "Bash(npm audit *)",
       "Bash(npm --version)",
       "Bash(identify /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz/src/assets/hero-bg.jpg)",
-      "Bash(sips -g pixelWidth -g pixelHeight /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz/src/assets/hero-bg.jpg)"
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz/src/assets/hero-bg.jpg)",
+      "Bash(git -C /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz add src/pages/Gallery.jsx index.html)",
+      "Bash(git -C /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz commit -m ' *)",
+      "Bash(git -C /Users/tyronehenderson/Desktop/kingdom-sweetz-n-treatz add netlify.toml public/_redirects)"
     ]
   }
 }
